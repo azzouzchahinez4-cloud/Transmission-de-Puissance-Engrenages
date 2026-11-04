@@ -7,7 +7,7 @@
 
 **Projet technique en ingénierie mécanique — Prototypage**
 
-<img src="I1.jpg" alt="Mécanisme de transmission par engrenages" width="650">
+<img src="I1.jpg" alt="Mécanisme de transmission par engrenages" width="400">
 
 *Étude géométrique et réalisation d'un mécanisme de transmission de puissance par engrenages cylindriques à denture droite.*
 
