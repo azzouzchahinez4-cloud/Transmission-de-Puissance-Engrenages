@@ -1,167 +1,133 @@
-# ⚙️ Transmission de puissance par engrenages
+# ⚙️ Conception et réalisation d'un système de transmission de puissance par engrenages
 
-### Étude mécanique • Analyse cinématique • Fabrication additive
-
-**Projet technique en ingénierie mécanique — Orientation mécatronique**
+**Ingénierie mécanique | Dimensionnement | CAO | Fabrication additive**
 
 ## 1. Présentation du projet
 
-Ce projet porte sur l'étude d'un système de transmission de puissance par engrenages et sur la réalisation de composants mécaniques par fabrication additive.
+Ce projet consiste à étudier et réaliser un système de transmission mécanique composé de deux engrenages cylindriques à denture droite, d'un support et d'une manivelle permettant l'entraînement manuel du mécanisme.
 
-L'objectif est de mettre en relation les connaissances théoriques en mécanique avec les contraintes pratiques de fabrication, d'assemblage et de fonctionnement d'un mécanisme réel.
+L'objectif est de mettre en application les principes de dimensionnement mécanique, de transmission de mouvement et de fabrication additive.
 
-Ce travail s'inscrit dans une démarche de développement de compétences en ingénierie mécanique, notamment en analyse fonctionnelle, transmission de mouvement, géométrie des engrenages et fabrication additive.
+## 2. Caractéristiques des engrenages
 
-## 2. Problématique technique
+| Paramètre | Engrenage 1 | Engrenage 2 |
+|---|---:|---:|
+| Nombre de dents | 60 | 30 |
+| Module | 2 mm | 2 mm |
+| Diamètre primitif | 120 mm | 60 mm |
+| Diamètre extérieur | 124 mm | 64 mm |
+| Diamètre de pied | 115 mm | 55 mm |
+| Angle de pression supposé | 20° | 20° |
 
-**Comment réaliser un mécanisme de transmission par engrenages en tenant compte des exigences géométriques, des jeux fonctionnels et des contraintes de fabrication additive ?**
+### Calcul de l'entraxe
 
-L'étude cherche à identifier les paramètres qui conditionnent un engrènement correct et une transmission régulière du mouvement de rotation.
+a = (d₁ + d₂) / 2
 
-## 3. Objectifs techniques
+a = (120 + 60) / 2
 
-- Comprendre le fonctionnement d'une transmission par roues dentées.
-- Identifier les composants et leurs fonctions mécaniques.
-- Étudier les paramètres géométriques des engrenages.
-- Déterminer les rapports de transmission.
-- Réaliser des composants par impression 3D FDM.
-- Examiner les contraintes d'assemblage et les jeux fonctionnels.
-- Proposer des améliorations techniques.
+**Entraxe théorique = 90 mm**
 
-## 4. Étude géométrique et cinématique
+### Rapport de transmission
 
-### Paramètres caractéristiques
+i = Z₁ / Z₂ = 60 / 30 = 2
 
-| Paramètre | Symbole | Valeur |
-|---|---|---|
-| Nombre de dents | Z | À vérifier |
-| Module | m | À déterminer |
-| Diamètre primitif | d | À calculer |
-| Diamètre extérieur | da | À mesurer |
-| Entraxe | a | À déterminer |
-| Angle de pression | α | À identifier |
-| Largeur de denture | b | À mesurer |
+Lorsque l'engrenage Z60 entraîne Z30, la vitesse de rotation de sortie est multipliée par deux, avec inversion du sens de rotation.
 
-### Relations de dimensionnement
+## 3. Dimensionnement du support
 
-Pour deux engrenages cylindriques extérieurs à denture droite, de même module, avec une géométrie standard sans déport :
+Le support doit maintenir les deux axes parallèles, garantir un entraxe de 90 mm et permettre une rotation libre des engrenages.
 
-**Diamètre primitif :**
+### Dimensions préliminaires proposées
 
-`d = m × Z`
+| Élément | Dimension |
+|---|---|
+| Longueur du support | 220 mm |
+| Largeur du support | 100 mm |
+| Épaisseur de la base | 10 mm |
+| Entraxe des deux arbres | 90 mm |
+| Diamètre nominal des axes | 8 mm |
+| Hauteur des axes au-dessus de la base | 25 mm |
+| Épaisseur minimale des paliers imprimés | 12 mm |
 
-**Diamètre extérieur :**
+Les axes seront disposés parallèlement, avec un positionnement permettant l'engrènement des deux roues.
 
-`da = m × (Z + 2)`
+Le support devra comporter des logements adaptés aux axes ou aux roulements retenus.
 
-**Module estimé à partir du diamètre extérieur :**
+## 4. Dimensionnement de la manivelle
 
-`m = da / (Z + 2)`
+La manivelle permet l'entraînement manuel de l'arbre moteur.
 
-**Entraxe théorique :**
+### Dimensions proposées
 
-`a = m × (Z1 + Z2) / 2`
+| Paramètre | Valeur |
+|---|---|
+| Longueur utile de la manivelle | 80 mm |
+| Section du bras | 15 × 10 mm |
+| Diamètre de fixation sur l'arbre | 8 mm nominal |
+| Longueur de la poignée tournante | 45 mm |
+| Diamètre de la poignée | 20 mm |
 
-**Rapport des vitesses en valeur absolue :**
+### Couple appliqué
 
-`|ω2 / ω1| = Z1 / Z2`
+Le couple d'entraînement est donné par :
 
-Ces équations constituent une base de vérification. Les valeurs numériques seront ajoutées après identification et mesure des engrenages.
+C = F × L
+
+Avec :
+
+- F : effort tangentiel appliqué sur la poignée (N)
+- L : longueur utile de la manivelle (m)
+
+Pour un effort de 20 N et un bras de 0,08 m :
+
+**C = 20 × 0,08 = 1,6 N·m**
+
+Cette valeur représente un cas de calcul et non un couple admissible vérifié pour les composants imprimés.
 
 ## 5. Fabrication additive
 
-### Moyens techniques
-
-| Caractéristique | Configuration |
+| Paramètre | Configuration |
 |---|---|
 | Imprimante | ELEGOO Centauri Carbon |
 | Procédé | FDM |
 | Matériau | PLA |
 | Hauteur de couche | 0,20 mm |
-| Technologie | Dépôt de filament fondu |
+| Pièces concernées | Engrenages, support et manivelle |
 
-La fabrication additive permet de réaliser des géométries mécaniques complexes tout en étudiant l'influence du procédé sur les dimensions, l'état de surface et la qualité des pièces obtenues.
+Le choix des orientations d'impression, du remplissage et des épaisseurs devra tenir compte des sollicitations mécaniques et de la précision des assemblages.
 
-### Contraintes techniques étudiées
+## 6. Vérifications mécaniques
 
-- Précision géométrique des dentures.
-- Qualité des surfaces de contact.
-- Jeux entre composants.
-- Tolérances des alésages et des arbres.
-- Orientation des pièces pendant l'impression.
-- Résistance mécanique et limites du PLA.
+Les vérifications prévues concernent :
 
-## 6. Assemblage et analyse fonctionnelle
+- Le respect de l'entraxe de 90 mm.
+- L'alignement et le parallélisme des axes.
+- Les jeux entre arbres et paliers.
+- La qualité de l'engrènement.
+- La liberté de rotation des deux roues.
+- La tenue mécanique de la manivelle et de ses fixations.
 
-L'analyse du mécanisme porte sur :
+## 7. Compétences valorisées
 
-- Le positionnement relatif des composants.
-- La coaxialité et l'alignement des éléments tournants.
-- Les conditions d'engrènement.
-- Les jeux fonctionnels.
-- Les frottements et les éventuels points durs.
-- La continuité de transmission du mouvement.
+Ce projet mobilise des compétences en :
 
-Les observations et résultats expérimentaux seront documentés à partir des essais réalisés.
+- Analyse fonctionnelle et conception mécanique.
+- Dimensionnement géométrique des engrenages.
+- Cinématique et transmission de puissance.
+- Conception de supports et de liaisons pivot.
+- Fabrication additive et préparation d'impression.
+- Métrologie et vérification dimensionnelle.
+- Résolution de problèmes techniques.
+- Documentation et communication technique.
 
-## 7. Compétences techniques mobilisées
+## 8. Objectif professionnel
 
-| Domaine | Compétences |
-|---|---|
-| Ingénierie mécanique | Analyse fonctionnelle et compréhension des mécanismes |
-| Transmission de puissance | Cinématique des engrenages et rapports de transmission |
-| Dimensionnement | Calculs géométriques et vérification de cohérence |
-| Fabrication additive | Préparation et réalisation de pièces FDM |
-| Métrologie | Analyse des dimensions, jeux et tolérances |
-| Résolution de problèmes | Identification des contraintes et recherche d'améliorations |
-| Communication technique | Documentation et présentation d'un projet mécanique |
+Étudiant en ingénierie mécanique, orienté vers la mécatronique, je développe à travers ce projet mes compétences en conception, dimensionnement et réalisation de systèmes mécaniques.
 
-## 8. Démarche d'ingénierie
+Cette réalisation s'inscrit dans ma démarche de recherche de stage en ingénierie mécanique, afin de mettre en application mes connaissances sur des projets industriels concrets.
 
-Le projet est organisé autour d'une méthode progressive :
+## Conclusion
 
-1. Identification du besoin et de la fonction mécanique.
-2. Analyse du fonctionnement du système.
-3. Étude des caractéristiques géométriques.
-4. Préparation de la fabrication additive.
-5. Réalisation des composants.
-6. Analyse de l'assemblage et du fonctionnement.
-7. Identification des limites et pistes d'amélioration.
+Ce projet illustre l'application des connaissances en transmission de puissance, géométrie des engrenages et fabrication additive à un mécanisme réel.
 
-Cette démarche permet de relier l'analyse théorique aux contraintes pratiques d'un système mécanique.
-
-## 9. Résultats et documentation
-
-Les éléments suivants seront progressivement intégrés au dépôt :
-
-- Photographies des pièces fabriquées.
-- Images du mécanisme assemblé.
-- Vidéo de fabrication et de démonstration.
-- Relevés dimensionnels.
-- Calculs de transmission.
-- Observations et conclusions techniques.
-
-Les performances mécaniques ne seront considérées comme validées qu'après réalisation des vérifications correspondantes.
-
-## 10. Perspectives d'amélioration
-
-- Étudier l'influence du module sur la géométrie des dentures.
-- Vérifier les jeux d'engrènement.
-- Comparer différentes configurations de transmission.
-- Évaluer le comportement mécanique sous charge.
-- Étudier les matériaux adaptés aux pièces de transmission.
-- Envisager une motorisation pour réaliser des essais fonctionnels.
-
-## 11. Valorisation professionnelle
-
-Ce projet témoigne de mon intérêt pour la compréhension, la réalisation et l'amélioration des systèmes mécaniques.
-
-Étudiant en ingénierie mécanique avec une orientation vers la mécatronique, je souhaite développer mes compétences en conception, dimensionnement, fabrication et validation de systèmes techniques.
-
-**Je suis actuellement à la recherche d'un stage en ingénierie mécanique ou mécatronique**, afin de contribuer à des projets industriels, approfondir mes compétences et mettre en application mes connaissances dans un environnement professionnel.
-
----
-
-**Domaines d'intérêt :** Conception mécanique • CAO • Transmission de puissance • Fabrication additive • Métrologie • Mécatronique
-
-*Projet évolutif : les caractéristiques dimensionnelles, les résultats expérimentaux et les supports visuels seront complétés au fur et à mesure des vérifications techniques.*
+Il constitue un support d'apprentissage pour approfondir les notions de dimensionnement, d'assemblage, de tolérances et de validation mécanique.
