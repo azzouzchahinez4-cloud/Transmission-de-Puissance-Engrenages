@@ -5,7 +5,7 @@
 
 ### Étude mécanique | Dimensionnement | CAO | Fabrication additive
 
-**Projet technique en ingénierie mécanique — Orientation mécatronique**
+**Projet technique en ingénierie mécanique — Prototypage**
 
 <img src="I1.jpg" alt="Mécanisme de transmission par engrenages" width="650">
 
