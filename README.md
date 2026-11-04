@@ -1,176 +1,189 @@
 
 # ⚙️ Transmission de puissance par engrenages
 
-### Étude mécanique | Dimensionnement | Analyse cinématique | Fabrication additive
+<div align="center">
+
+### Étude mécanique | Dimensionnement | CAO | Fabrication additive
 
 **Projet technique en ingénierie mécanique — Orientation mécatronique**
 
+<img src="I1.jpg" alt="Mécanisme de transmission par engrenages" width="650">
+
+*Étude géométrique et réalisation d'un mécanisme de transmission de puissance par engrenages cylindriques à denture droite.*
+
+</div>
+
 ---
 
-## 1. Présentation du projet
+## 📌 Présentation du projet
 
-Ce projet porte sur l'étude et la réalisation d'un mécanisme de transmission de puissance par engrenages cylindriques à denture droite.
+Ce projet porte sur l'étude et la réalisation d'un système de transmission de puissance par engrenages cylindriques à denture droite.
 
-Le système comprend deux roues dentées, un support mécanique, des éléments de guidage et une manivelle permettant l'entraînement manuel.
+Le mécanisme comprend deux roues dentées, un support mécanique, des axes de rotation et une manivelle permettant son entraînement manuel.
 
-L'objectif est de relier les connaissances théoriques en ingénierie mécanique aux contraintes pratiques de fabrication, d'assemblage et de fonctionnement d'un mécanisme réel.
+L'objectif est d'appliquer les principes fondamentaux de la mécanique à un système concret, depuis l'analyse géométrique jusqu'à la fabrication additive.
 
-Le projet mobilise plusieurs domaines :
+Les principaux domaines abordés sont :
 
-- Conception et analyse de systèmes mécaniques.
+- Analyse fonctionnelle des mécanismes.
 - Dimensionnement géométrique des engrenages.
 - Cinématique et transmission de puissance.
 - Exploitation de modèles numériques 2D et 3D.
-- Fabrication additive par dépôt de filament fondu.
-- Métrologie, jeux fonctionnels et tolérances.
-- Documentation et communication technique.
+- Fabrication additive FDM.
+- Jeux fonctionnels et tolérances.
+- Vérification et documentation technique.
 
 ---
 
-## 2. Problématique technique
+## 🎯 1. Problématique technique
 
-**Comment réaliser un système de transmission de puissance par engrenages en assurant la cohérence géométrique des composants, le respect des entraxes et un fonctionnement mécanique satisfaisant ?**
+**Comment réaliser un mécanisme de transmission de puissance par engrenages en garantissant la compatibilité géométrique des composants, le positionnement correct des axes et un fonctionnement mécanique satisfaisant ?**
 
-Cette problématique nécessite de considérer :
+Cette problématique implique plusieurs contraintes :
 
-- La géométrie des roues dentées.
-- Le rapport de transmission.
-- Le positionnement relatif des axes.
-- La conception du support et de la manivelle.
-- Les contraintes du procédé de fabrication.
-- Les jeux et les tolérances d'assemblage.
+- Respecter le module et les caractéristiques des dentures.
+- Déterminer l'entraxe théorique des engrenages.
+- Assurer le guidage des arbres en rotation.
+- Concevoir un support suffisamment rigide.
+- Permettre l'entraînement du système par une manivelle.
+- Tenir compte des contraintes de fabrication additive.
+- Prévoir les jeux nécessaires à l'assemblage.
 
 ---
 
-## 3. Étude et dimensionnement des engrenages
+## ⚙️ 2. Étude et dimensionnement des engrenages
 
-### 3.1 Caractéristiques géométriques
+### 2.1 Hypothèses de calcul
 
-L'étude nominale repose sur deux engrenages cylindriques extérieurs à denture droite, de module 2 mm.
+L'étude théorique considère deux engrenages cylindriques extérieurs à denture droite.
 
-| Paramètre | Engrenage 1 | Engrenage 2 |
-|---|---:|---:|
-| Nombre de dents Z | 60 | 30 |
-| Module m | 2 mm | 2 mm |
-| Diamètre primitif d | 120 mm | 60 mm |
-| Diamètre extérieur da | 124 mm | 64 mm |
-| Diamètre de pied df | 115 mm | 55 mm |
-| Diamètre de base db | 112,76 mm | 56,38 mm |
-| Rayon primitif | 60 mm | 30 mm |
-| Angle de pression supposé | 20° | 20° |
+Les hypothèses retenues sont :
 
-**Hypothèses de calcul :**
-
-- Denture droite extérieure.
+- Module : m = 2 mm.
+- Nombre de dents : Z1 = 60 et Z2 = 30.
+- Angle de pression : α = 20°.
 - Profil standard à développante de cercle.
 - Absence de déport de profil.
-- Angle de pression de 20°.
-- Saillie de dent égale à 1 module.
-- Creux de dent égal à 1,25 module.
+- Saillie de dent : ha = m.
+- Creux de dent : hf = 1,25m.
 
-Ces hypothèses doivent être vérifiées sur la géométrie réelle du modèle STL.
+Ces hypothèses définissent la géométrie nominale étudiée. Les dimensions réelles du STL devront être vérifiées séparément.
 
-### 3.2 Calcul des diamètres primitifs
+### 2.2 Tableau des caractéristiques géométriques
 
-Le diamètre primitif est donné par :
+| Paramètre | Formule | Z60 | Z30 |
+|---|---|---:|---:|
+| Nombre de dents | Z | 60 | 30 |
+| Module | m | 2 mm | 2 mm |
+| Diamètre primitif | d = m × Z | 120 mm | 60 mm |
+| Diamètre extérieur | da = m × (Z + 2) | 124 mm | 64 mm |
+| Diamètre de pied | df = m × (Z - 2,5) | 115 mm | 55 mm |
+| Diamètre de base | db = d × cos(20°) | 112,76 mm | 56,38 mm |
+| Rayon primitif | r = d / 2 | 60 mm | 30 mm |
+
+### 2.3 Calcul des diamètres primitifs
+
+La relation fondamentale est :
 
 **d = m × Z**
 
-Pour la roue Z60 :
+Pour l'engrenage Z60 :
 
 d1 = 2 × 60
 
 **d1 = 120 mm**
 
-Pour la roue Z30 :
+Pour l'engrenage Z30 :
 
 d2 = 2 × 30
 
 **d2 = 60 mm**
 
-### 3.3 Calcul des diamètres extérieurs
+### 2.4 Calcul des diamètres extérieurs
 
-Pour une denture standard sans déport :
+Pour une denture standard sans déport de profil :
 
 **da = m × (Z + 2)**
 
-Roue Z60 :
+Engrenage Z60 :
 
 da1 = 2 × (60 + 2)
 
 **da1 = 124 mm**
 
-Roue Z30 :
+Engrenage Z30 :
 
 da2 = 2 × (30 + 2)
 
 **da2 = 64 mm**
 
-### 3.4 Calcul des diamètres de pied
+### 2.5 Calcul des diamètres de pied
 
 Pour le profil standard retenu :
 
 **df = m × (Z - 2,5)**
 
-Roue Z60 :
+Engrenage Z60 :
 
 df1 = 2 × (60 - 2,5)
 
 **df1 = 115 mm**
 
-Roue Z30 :
+Engrenage Z30 :
 
 df2 = 2 × (30 - 2,5)
 
 **df2 = 55 mm**
 
-### 3.5 Calcul des diamètres de base
+### 2.6 Calcul des diamètres de base
 
-Le diamètre de base est donné par :
+Le diamètre de base est défini par :
 
 **db = d × cos(α)**
 
 Avec α = 20°.
 
-Roue Z60 :
+Engrenage Z60 :
 
 db1 = 120 × cos(20°)
 
 **db1 ≈ 112,76 mm**
 
-Roue Z30 :
+Engrenage Z30 :
 
 db2 = 60 × cos(20°)
 
 **db2 ≈ 56,38 mm**
 
-### 3.6 Calcul de l'entraxe
+### 2.7 Calcul de l'entraxe
 
-L'entraxe théorique entre les deux axes est :
+Pour deux engrenages extérieurs standards sans déport :
 
 **a = (d1 + d2) / 2**
+
+Application numérique :
 
 a = (120 + 60) / 2
 
 **a = 90 mm**
 
-Cette valeur constitue une donnée de référence pour l'implantation des arbres et le dimensionnement du support.
+L'entraxe théorique constitue une donnée essentielle pour le positionnement des arbres.
 
-### 3.7 Rapport de transmission
+### 2.8 Rapport de transmission
 
-Pour deux roues dentées extérieures :
+Pour deux engrenages extérieurs :
 
 **ω2 / ω1 = -Z1 / Z2**
 
-Si la roue Z60 est motrice :
+Si Z60 entraîne Z30 :
 
 ω2 / ω1 = -60 / 30
 
 **ω2 / ω1 = -2**
 
-La roue Z30 tourne deux fois plus vite que la roue Z60, dans le sens opposé.
+La roue Z30 tourne deux fois plus vite que la roue Z60, en sens opposé.
 
-Si la roue Z30 est motrice :
+Si Z30 entraîne Z60 :
 
 ω60 / ω30 = -30 / 60
 
@@ -178,58 +191,57 @@ Si la roue Z30 est motrice :
 
 La roue Z60 tourne alors deux fois moins vite que la roue Z30.
 
-En négligeant les pertes, le couple transmis varie inversement à la vitesse de rotation.
+En négligeant les pertes, la conservation de la puissance implique une variation inverse du couple et de la vitesse.
 
 ---
 
-## 4. Étude du support mécanique
+## 🛠️ 3. Étude du support mécanique
 
-Le support assure le maintien des axes et le positionnement relatif des engrenages.
+Le support mécanique assure le maintien des axes et le positionnement des engrenages.
 
-### 4.1 Données de dimensionnement
-
-| Paramètre | Valeur |
-|---|---:|
-| Entraxe nominal | 90 mm |
-| Diamètre extérieur roue Z60 | 124 mm |
-| Diamètre extérieur roue Z30 | 64 mm |
-| Encombrement théorique des roues suivant la ligne des centres | 184 mm |
-
-L'encombrement théorique de 184 mm correspond à la distance entre les extrémités extérieures des deux roues dans la direction de la ligne des centres, lorsqu'elles sont en position d'engrènement.
-
-### 4.2 Proposition de support
-
-| Paramètre | Dimension préliminaire |
-|---|---:|
-| Longueur de la base | 220 mm |
-| Largeur de la base | 100 mm |
-| Épaisseur de la base | 10 mm |
-| Entraxe des arbres | 90 mm |
-| Diamètre nominal des axes | 8 mm |
-| Épaisseur minimale proposée des paliers | 12 mm |
-
-Ces dimensions sont des propositions de conception et non des dimensions relevées sur le STL.
-
-La hauteur des axes, l'épaisseur des engrenages, les logements des paliers et les fixations restent à vérifier sur le mécanisme réel.
-
-### 4.3 Fonctions mécaniques
+### 3.1 Exigences fonctionnelles
 
 Le support doit :
 
 - Maintenir les axes de rotation.
-- Assurer leur parallélisme.
+- Garantir leur parallélisme.
 - Respecter l'entraxe théorique.
+- Assurer une rigidité suffisante.
 - Limiter les déplacements indésirables.
-- Permettre la rotation des engrenages.
-- Assurer une rigidité suffisante pour les sollicitations prévues.
+- Permettre une rotation sans interférence avec la structure.
+
+### 3.2 Dimensions préliminaires proposées
+
+| Paramètre | Valeur proposée |
+|---|---:|
+| Longueur du support | 220 mm |
+| Largeur du support | 100 mm |
+| Épaisseur de la base | 10 mm |
+| Entraxe nominal | 90 mm |
+| Diamètre nominal des axes | 8 mm |
+| Épaisseur des paliers | 12 mm |
+
+**Remarque :** ces dimensions sont des propositions de pré-dimensionnement et ne constituent pas des cotes mesurées sur le modèle STL.
+
+L'encombrement théorique des deux roues suivant la ligne des centres est :
+
+L = 124 / 2 + 90 + 64 / 2
+
+L = 62 + 90 + 32
+
+**L = 184 mm**
+
+Une base de 220 mm laisse donc une marge totale théorique de 36 mm dans cette direction, soit 18 mm de chaque côté si le mécanisme est centré.
+
+Cette vérification ne tient pas compte de l'encombrement des paliers, des fixations et des autres éléments.
 
 ---
 
-## 5. Étude de la manivelle
+## 🔧 4. Étude de la manivelle
 
-La manivelle permet d'appliquer manuellement un couple sur l'arbre moteur.
+La manivelle permet d'appliquer un couple sur l'arbre moteur.
 
-### 5.1 Dimensions préliminaires proposées
+### 4.1 Dimensions proposées
 
 | Paramètre | Valeur |
 |---|---:|
@@ -239,59 +251,65 @@ La manivelle permet d'appliquer manuellement un couple sur l'arbre moteur.
 | Longueur de la poignée | 45 mm |
 | Diamètre de la poignée | 20 mm |
 
-Ces valeurs devront être adaptées aux dimensions réelles du modèle et au système de fixation.
+Ces valeurs restent à adapter aux composants réels.
 
-### 5.2 Calcul du couple appliqué
+### 4.2 Calcul du couple
 
-La relation mécanique est :
+Le couple appliqué est :
 
 **C = F × L**
 
 Avec :
 
 - C : couple en N·m.
-- F : effort tangentiel en N.
-- L : longueur du bras de levier en m.
+- F : force tangentielle en N.
+- L : bras de levier en m.
 
-Pour un effort hypothétique de 20 N et un bras de 80 mm :
+Pour un effort hypothétique de 20 N :
 
-L = 0,08 m
+L = 80 mm = 0,08 m
 
 C = 20 × 0,08
 
 **C = 1,6 N·m**
 
-Ce résultat représente un cas de calcul et ne constitue pas une validation de la résistance de la manivelle imprimée.
+Cette valeur constitue un exemple de sollicitation. Elle ne valide pas à elle seule la résistance mécanique de la manivelle.
 
 ---
 
-## 6. Documentation CAO et fichiers techniques
+## 📐 5. Documentation CAO et fichiers techniques
 
-### 6.1 Modèle géométrique 3D
+### 5.1 Modèle géométrique 3D
 
-Le modèle STL regroupe les composants destinés à la fabrication additive.
+Le fichier STL contient la géométrie des composants destinés à la fabrication additive.
 
-Le format STL décrit les surfaces des pièces à l'aide d'un maillage triangulé.
+Le format STL représente les surfaces des pièces par un maillage triangulé.
 
-**[📦 Consulter le modèle STL](Engrenagem+3++Junto.stl)**
+**[📦 Télécharger le modèle 3D STL](Engrenagem+3++Junto.stl)**
 
-### 6.2 Projection technique 2D
+### 5.2 Projection technique 2D
 
-Une projection 2D du modèle permet de documenter les contours des composants et d'en faciliter l'analyse géométrique.
+La projection 2D permet de visualiser les contours géométriques des composants.
 
-![Plan technique 2D du mécanisme](Transmission_engrenages_plan_2D.png)
+<div align="center">
 
-**[📐 Télécharger la projection DXF](Transmission_engrenages_projection_2D.dxf)**
+<img src="Transmission_engrenages_plan_2D.png" alt="Plan technique 2D" width="750">
 
-Le fichier DXF permet d'exploiter les contours dans un logiciel de CAO compatible.
+*Projection géométrique 2D du mécanisme.*
 
-**Limite technique :** une projection 2D extraite d'un STL ne constitue pas automatiquement un plan de fabrication coté et tolérancé ni une reconstruction paramétrique complète.
+</div>
+
+**[📐 Télécharger le fichier DXF](Transmission_engrenages_projection_2D.dxf)**
+
+Le fichier DXF permet une exploitation des contours dans un logiciel de CAO compatible.
+
+Une projection issue d'un STL ne constitue pas automatiquement un plan de fabrication coté et tolérancé.
 
 ---
 
-## 7. Préparation de la fabrication additive
+## 🖥️ 6. Préparation de la fabrication additive
 
-### 7.1 Moyens techniques
+### 6.1 Moyens techniques
 
 | Caractéristique | Configuration |
 |---|---|
@@ -300,174 +318,240 @@ Le fichier DXF permet d'exploiter les contours dans un logiciel de CAO compatibl
 | Procédé | FDM |
 | Matériau | PLA |
 | Diamètre de buse | 0,40 mm |
-| Hauteur de couche | 0,20 mm |
+| Hauteur de couche de référence | 0,20 mm |
 
-### 7.2 Implantation des composants
+Les paramètres de fabrication doivent être confirmés à partir du profil de tranchage réellement utilisé.
 
-La préparation de fabrication consiste à disposer les différents composants sur le plateau virtuel avant le tranchage.
+### 6.2 Préparation des composants
 
-Cette étape nécessite de considérer :
+La préparation de fabrication nécessite :
 
-- L'orientation des pièces.
-- Leur encombrement.
-- L'adhérence au plateau.
-- La nécessité éventuelle de supports.
-- Les paramètres d'impression.
-- La qualité géométrique recherchée.
+1. L'importation du modèle STL.
+2. L'analyse de l'orientation des pièces.
+3. La disposition des composants sur le plateau.
+4. La configuration des paramètres d'impression.
+5. Le tranchage du modèle.
+6. La vérification des trajectoires et des supports éventuels.
 
 ### Capture 1 — Préparation du mécanisme
 
-![Préparation dans ELEGOO Slicer](E1.png)
+<div align="center">
+
+<img src="E1.png" alt="Préparation du mécanisme dans ELEGOO Slicer" width="750">
+
+</div>
 
 ### Capture 2 — Disposition des composants
 
-![Disposition des composants mécaniques](E2.png)
+<div align="center">
+
+<img src="E2.png" alt="Disposition des composants mécaniques" width="750">
+
+</div>
 
 ### Capture 3 — Implantation sur le plateau
 
-![Plateau d'impression ELEGOO](E3.png)
+<div align="center">
+
+<img src="E3.png" alt="Implantation sur le plateau ELEGOO" width="750">
+
+</div>
 
 ---
 
-## 8. Réalisation physique
+## 🏭 7. Réalisation physique du mécanisme
 
-La fabrication additive permet de produire les composants mécaniques à partir de leur représentation numérique.
+La fabrication additive permet de réaliser les composants à partir de leur géométrie numérique.
 
-L'étude de cette phase porte notamment sur :
+Cette étape met en évidence les contraintes suivantes :
 
-- La précision géométrique des dentures.
-- La qualité des alésages.
-- Les tolérances dimensionnelles.
-- L'orientation d'impression.
-- Les propriétés mécaniques du PLA.
-- Les conditions d'assemblage.
+- Précision dimensionnelle des pièces.
+- Qualité de fabrication des dentures.
+- État de surface.
+- Résistance mécanique des composants.
+- Qualité des alésages.
+- Jeux nécessaires à l'assemblage.
+- Orientation des couches d'impression.
 
-### 8.1 Documentation photographique
+### 7.1 Documentation photographique
 
-Les photographies suivantes documentent la réalisation physique du projet.
+#### Photographie 1 — Réalisation du projet
 
-#### Photographie 1
+<div align="center">
 
-![Photographie du projet 1](I1.jpg)
+<img src="I1.jpg" alt="Réalisation mécanique - photographie 1" width="650">
 
-#### Photographie 2
+</div>
 
-![Photographie du projet 2](I2.jpg)
+#### Photographie 2 — Documentation du projet
 
-#### Photographie 3
+<div align="center">
 
-![Photographie du projet 3](I3.jpg)
+<img src="I2.jpg" alt="Réalisation mécanique - photographie 2" width="650">
 
-#### Photographie 4
+</div>
 
-![Photographie du projet 4](I4.jpg)
+#### Photographie 3 — Documentation du projet
 
-### 8.2 Vidéo du projet
+<div align="center">
 
-La vidéo permet de présenter la fabrication et les différentes étapes de réalisation du mécanisme.
+<img src="I3.jpg" alt="Réalisation mécanique - photographie 3" width="650">
 
-**[🎥 Voir la vidéo du projet](VID.mp4)**
+</div>
 
----
+#### Photographie 4 — Documentation du projet
 
-## 9. Chaîne numérique de fabrication
+<div align="center">
 
-Le projet met en évidence l'exploitation de plusieurs formats de données numériques dans une démarche de fabrication additive.
+<img src="I4.jpg" alt="Réalisation mécanique - photographie 4" width="650">
 
-### Chaîne de fabrication
+</div>
 
-**Modèle STL → Préparation dans ELEGOO Slicer → Tranchage → Impression FDM → Assemblage → Vérification fonctionnelle**
+### 7.2 Vidéo du projet
 
-### Documentation géométrique complémentaire
+La vidéo documente les étapes de réalisation du mécanisme.
 
-**Modèle STL → Extraction de contours 2D → Fichier DXF → Analyse géométrique**
-
-Cette distinction permet de présenter séparément la chaîne de fabrication et la démarche de documentation CAO.
-
----
-
-## 10. Assemblage et vérification fonctionnelle
-
-Les contrôles à effectuer concernent :
-
-1. La conformité de l'entraxe de 90 mm.
-2. Le positionnement des axes de rotation.
-3. Le parallélisme des arbres.
-4. La qualité de l'engrènement.
-5. La liberté de rotation des roues dentées.
-6. Les jeux fonctionnels.
-7. Le fonctionnement de la manivelle.
-8. L'identification des frottements et points durs.
-
-Les résultats seront documentés après réalisation des vérifications expérimentales.
+**[🎥 Visionner la vidéo du projet](VID.mp4)**
 
 ---
 
-## 11. Compétences techniques mobilisées et développées
+## 🔄 8. Chaîne numérique de fabrication
+
+Le projet illustre une démarche d'exploitation de données géométriques et de fabrication numérique.
+
+### Chaîne principale
+
+**Modèle STL → Préparation dans ELEGOO Slicer → Tranchage → Impression FDM → Assemblage → Vérifications fonctionnelles**
+
+### Documentation complémentaire
+
+**Modèle STL → Extraction de contours → Projection 2D → Fichier DXF**
+
+Cette organisation distingue la préparation de fabrication de la documentation géométrique.
+
+---
+
+## 📏 9. Métrologie et vérification fonctionnelle
+
+La qualité du mécanisme dépend notamment de la précision des dentures, du positionnement des axes et des jeux fonctionnels.
+
+### Contrôles à réaliser
+
+| Élément | Vérification |
+|---|---|
+| Engrenages | Diamètres et qualité des dentures |
+| Support | Géométrie et rigidité |
+| Axes | Alignement et parallélisme |
+| Entraxe | Comparaison avec 90 mm théoriques |
+| Alésages | Dimensions et jeux fonctionnels |
+| Manivelle | Fixation et transmission du couple |
+| Assemblage | Liberté de rotation |
+| Mécanisme complet | Fonctionnement sans point dur |
+
+Les résultats expérimentaux devront être renseignés après mesure ou essai.
+
+---
+
+## 📊 10. Analyse technique
+
+### 10.1 Contraintes identifiées
+
+La fabrication additive de pièces mécaniques fonctionnelles implique plusieurs limites :
+
+- Précision des dimensions imprimées.
+- Déformations possibles lors du refroidissement.
+- Rugosité des surfaces en contact.
+- Anisotropie mécanique des pièces FDM.
+- Frottements au niveau des axes.
+- Usure éventuelle des dentures.
+- Résistance mécanique du PLA sous charge.
+
+### 10.2 Pistes d'amélioration
+
+Les améliorations envisageables comprennent :
+
+- Ajustement des jeux fonctionnels.
+- Optimisation de l'orientation d'impression.
+- Intégration de roulements ou de bagues.
+- Étude de matériaux plus adaptés aux sollicitations.
+- Mesure des écarts dimensionnels.
+- Essais sous différentes charges.
+- Évaluation du rendement mécanique.
+- Motorisation pour des essais expérimentaux.
+
+---
+
+## 🎓 11. Compétences techniques mobilisées et développées
 
 | Domaine | Compétences |
 |---|---|
-| Conception mécanique | Analyse fonctionnelle et étude des mécanismes |
-| Dimensionnement | Calculs géométriques des engrenages |
-| Transmission de puissance | Cinématique, rapports de transmission et couples |
-| CAO | Exploitation de modèles 3D et de projections 2D |
-| Fabrication additive | Préparation et réalisation de pièces FDM |
-| Métrologie | Étude des dimensions, jeux et tolérances |
-| Résolution de problèmes | Identification des contraintes et recherche d'améliorations |
-| Documentation technique | Présentation des calculs, fichiers et résultats |
+| Ingénierie mécanique | Analyse fonctionnelle et étude de mécanismes |
+| Dimensionnement | Calcul des caractéristiques géométriques |
+| Cinématique | Étude des rapports de transmission |
+| CAO | Exploitation de modèles STL et de fichiers DXF |
+| Fabrication additive | Préparation et fabrication FDM |
+| Métrologie | Prise en compte des jeux et tolérances |
+| Analyse technique | Identification des contraintes et améliorations |
+| Communication | Rédaction d'une documentation structurée |
 
 ---
 
-## 12. Analyse critique et perspectives d'amélioration
+## 💼 12. Valorisation professionnelle
 
-### Limites techniques à étudier
+Ce projet constitue une application concrète des connaissances en ingénierie mécanique, notamment en transmission de puissance, dimensionnement et fabrication additive.
 
-- Écarts dimensionnels entre le modèle et les pièces fabriquées.
-- Précision des dentures.
-- Frottements entre composants.
-- Jeux au niveau des axes.
-- Résistance mécanique du PLA.
-- Rigidité du support.
-- Tenue mécanique de la manivelle.
+Il illustre mon intérêt pour l'étude, la réalisation et l'amélioration des systèmes mécaniques.
 
-### Perspectives d'amélioration
+**Étudiant en ingénierie mécanique, avec une orientation vers la mécatronique, je suis actuellement à la recherche d'un stage afin de mettre mes connaissances en application dans un environnement industriel.**
 
-- Vérification dimensionnelle des engrenages.
-- Optimisation des jeux fonctionnels.
-- Intégration éventuelle de roulements.
-- Comparaison de différents matériaux.
-- Essais de transmission sous charge.
-- Étude du rendement mécanique.
-- Motorisation du mécanisme pour des essais expérimentaux.
+Mes domaines d'intérêt comprennent :
+
+- La conception et le dimensionnement mécanique.
+- La CAO et la documentation technique.
+- La fabrication et l'industrialisation.
+- L'analyse et l'amélioration des systèmes mécaniques.
+- La mécatronique et les systèmes automatisés.
 
 ---
 
-## 13. Valorisation professionnelle
+## 📁 13. Fichiers du projet
 
-Ce projet constitue une application pratique des connaissances en ingénierie mécanique, notamment en transmission de puissance, dimensionnement géométrique et fabrication additive.
+Tous les fichiers sont disponibles à la racine de ce dépôt.
 
-Il illustre mon intérêt pour la compréhension, la réalisation et l'amélioration des systèmes mécaniques.
-
-**Étudiant en ingénierie mécanique, avec une orientation vers la mécatronique, je suis actuellement à la recherche d'un stage afin de mettre mes compétences en application dans un environnement industriel.**
-
-Je souhaite contribuer à des projets liés à :
-
-- La conception et au dimensionnement mécanique.
-- La CAO et à la documentation technique.
-- La fabrication et à l'industrialisation.
-- L'analyse et à l'amélioration des mécanismes.
-- La mécatronique et aux systèmes automatisés.
+| Fichier | Description |
+|---|---|
+| [Engrenagem+3++Junto.stl](Engrenagem+3++Junto.stl) | Modèle géométrique 3D |
+| [Transmission_engrenages_plan_2D.png](Transmission_engrenages_plan_2D.png) | Projection technique 2D |
+| [Transmission_engrenages_projection_2D.dxf](Transmission_engrenages_projection_2D.dxf) | Fichier de projection DXF |
+| [E1.png](E1.png) | Capture ELEGOO Slicer 1 |
+| [E2.png](E2.png) | Capture ELEGOO Slicer 2 |
+| [E3.png](E3.png) | Capture ELEGOO Slicer 3 |
+| [I1.jpg](I1.jpg) | Photographie 1 |
+| [I2.jpg](I2.jpg) | Photographie 2 |
+| [I3.jpg](I3.jpg) | Photographie 3 |
+| [I4.jpg](I4.jpg) | Photographie 4 |
+| [VID.mp4](VID.mp4) | Vidéo du projet |
 
 ---
 
-## 14. Conclusion
+## 🏁 14. Conclusion
 
-L'étude de ce système de transmission par engrenages permet de relier les principes théoriques de cinématique et de dimensionnement aux contraintes pratiques de fabrication et d'assemblage.
+Ce projet permet de relier les principes fondamentaux de la transmission de puissance par engrenages à leur application dans un mécanisme fabriqué par impression 3D.
 
-Le projet met en évidence l'importance de la cohérence géométrique, de la précision dimensionnelle et des vérifications fonctionnelles dans le développement d'un mécanisme.
+L'étude met en évidence l'importance :
+
+- Du dimensionnement géométrique.
+- Du respect des entraxes.
+- De la précision de fabrication.
+- Des jeux fonctionnels.
+- De la vérification des assemblages.
 
 Il constitue une expérience technique valorisable dans le cadre de mon parcours en ingénierie mécanique et de ma recherche de stage.
 
 ---
 
-**Mots-clés :** Ingénierie mécanique • Engrenages • Transmission de puissance • CAO • DXF • STL • Fabrication additive • FDM • Métrologie • Mécatronique
+<div align="center">
+
+**Ingénierie mécanique • Transmission de puissance • CAO • Fabrication additive • Mécatronique**
+
+</div>
